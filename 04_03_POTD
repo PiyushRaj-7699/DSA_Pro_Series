@@ -1,0 +1,15 @@
+class Solution:
+    def checkPowersOfThree(self, n: int) -> bool:
+        three = []
+        three.append(1)
+        for i in range(1, 17):
+            three.append(three[-1]*3)
+        i = 16
+        while i >= 0:
+            if three[i] <= n:
+                n -= three[i]
+            if n == 0:
+                return True
+            i = i - 1
+
+        return False
